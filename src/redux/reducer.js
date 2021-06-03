@@ -1,47 +1,43 @@
-const initialState = {
-    filter: '',
-    selectedUserId: null,
-    users: [],
-    todos: [],
+const initialstate = {
+    filter: "",
+    selectedAlbumId: null,
+    albums:[],
+    photos: [],
 
-    loadingUsers: false,
-    loadingTodos: false
+    loadingPhotos: false,
+    loadingAlbums:false,
 }
-export default (state = initialState, action) => {
+
+export default  (state = initialstate, action) => {
     switch (action.type) {
-        case 'users/load/start':
+        case 'albums/load/start':
             return {
                 ...state,
-                loadingUsers: true
+                loadingAlbums: true
             }
-        case 'users/load/success':
+        case 'albums/load/success':
             return {
                 ...state,
-                users: action.payload,
-                loadingUsers: false
+                albums: action.payload,
+                loadingAlbums: false
             }
-        case 'user/select':
+        case 'album/select':
             return {
                 ...state,
-                selectedUserId: action.payload
+                selectedAlbumId: action.payload
             }
-        case 'todos/load/start':
+        case 'photos/load/start':
             return {
                 ...state,
-                loadingUsers: true
+                loadingPhotos: true,
             }
-        case 'todos/load/success':
+        case 'photos/load/success':
             return {
                 ...state,
-                todos: action.payload,
-                loadingTodos: false
-            }
-        case 'filter/set':
-            return {
-                ...state,
-                filter: action.payload
+                photos: action.payload,
+                loadingPhotos: false
             }
         default:
-            return state
+            return state;;
     }
 }

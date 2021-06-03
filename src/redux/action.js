@@ -1,41 +1,36 @@
-export const loadUsers = () => {
-    return dispatch => {
-        dispatch({type: 'users/load/start'});
-        fetch('https://jsonplaceholder.typicode.com/users')
+export const loadAlbums = () => {
+    return dispatsh => {
+        dispatsh({type: 'albums/load/start'})
+        fetch('https://jsonplaceholder.typicode.com/albums/?_limit=10')
             .then(response => response.json())
-            .then((json) => {
-              dispatch({
-                  type: 'users/load/success',
-                  payload: json
-              });
-            });
-    }
-}
-
-export const loadTodos = () => {
-    return dispatch => {
-        dispatch({type: 'todos/load/start'});
-        fetch('https://jsonplaceholder.typicode.com/todos')
-            .then(response => response.json())
-            .then((json) => {
-                dispatch({
-                    type: 'todos/load/success',
+            .then(json => {
+                dispatsh({
+                    type: 'albums/load/success',
                     payload: json
-                });
-            });
+                })
+            })
     }
+
 }
-export const selectUser = (userId) => {
+
+export const loadPhotos = () => {
+    return dispatsh => {
+        dispatsh({type: 'photos/load/start'})
+        fetch('https://jsonplaceholder.typicode.com/photos/?_limit=15')
+            .then(response => response.json())
+            .then(json => {
+                dispatsh({
+                    type: 'photos/load/success',
+                    payload: json
+                })
+            })
+    }
+
+}
+export const selectAlbum = (albumId) => {
     return {
-        type: 'user/select',
-        payload: userId
-    }
-
-
-}
-export const setFilterText = (text) => {
-    return{
-        type: 'filter/set',
-        payload: text
+        type: 'album/select',
+        payload: albumId
     }
 }
+

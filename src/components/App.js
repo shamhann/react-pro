@@ -1,23 +1,22 @@
 import React, {useEffect} from 'react';
 import Users from "./Users";
-import Todos from "./Todos";
 import {useDispatch, useSelector} from "react-redux";
-import {loadTodos, loadUsers} from "../redux/action";
-
-
+import Albums from "./Albums";
+import Photos from "./Photos";
+import {loadAlbums, loadPhotos} from "../redux/action";
 
 function App(props) {
     const dispatch = useDispatch();
 
-    const loadingUsers = useSelector(state => state.loadingUsers);
-    const loadingTodos = useSelector(state => state.loadingTodos)
+    const loadingPhotos = useSelector(state => state.loadingPhotos);
+    const loadingAlbums = useSelector(state => state.loadingAlbums)
 
     useEffect(() => {
-        dispatch(loadUsers());
-        dispatch(loadTodos());
+        dispatch(loadAlbums());
+        dispatch(loadPhotos());
     },[])
 
-    if (loadingUsers || loadingTodos){
+    if (loadingAlbums || loadingPhotos){
         return (
             <div>
                 loading
@@ -27,8 +26,8 @@ function App(props) {
     return (
 
       <div className='container'>
-          <Users/>
-          <Todos/>
+          <Albums/>
+          <Photos/>
       </div>
     );
 }
