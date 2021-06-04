@@ -7,6 +7,7 @@ function Albums(props) {
 
     return (
         <div className='albums'>
+            <h1>Пользователи</h1>
             <ul>
                 {albums.map(album => {
                     return <Album key={album.id} album={album}/>

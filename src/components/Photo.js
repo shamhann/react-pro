@@ -2,9 +2,9 @@ import React from 'react';
 
 function Photo(props) {
     return (
-        <li>
-            <img src={props.photo.url} alt="image"/>
-        </li>
+            <div>
+                <img src={props.photo.url} alt="image"/>
+            </div>
     );
 }
 

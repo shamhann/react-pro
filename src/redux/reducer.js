@@ -37,6 +37,11 @@ export default  (state = initialstate, action) => {
                 photos: action.payload,
                 loadingPhotos: false
             }
+        case 'filter/set':
+            return {
+                ...state,
+                filter: action.payload
+            }
         default:
             return state;;
     }

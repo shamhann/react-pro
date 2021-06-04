@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-import Users from "./Users";
 import {useDispatch, useSelector} from "react-redux";
 import Albums from "./Albums";
 import Photos from "./Photos";
