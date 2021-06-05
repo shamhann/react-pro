@@ -28,9 +28,10 @@ h1{
    margin-bottom: 10px;
 
 }
-.albums ul li:hover{
+.albums ul li:hover,.btnActive{
   background-color: aliceblue;
 }
+
 .album-title{
   font-size: 20px;
   font-weight: bold;

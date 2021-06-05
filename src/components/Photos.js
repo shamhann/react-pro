@@ -6,10 +6,10 @@ import {setFilterText} from "../redux/action";
 function Photos(props) {
     const dispatch = useDispatch();
 
-    const photos = useSelector(state => state.photos);
-    const selectedAlbumId = useSelector(state => state.selectedAlbumId);
+    const photos = useSelector(state => state.photos.photos);
+    const selectedAlbumId = useSelector(state => state.albums.selectedAlbumId);
 
-    const filter = useSelector(state => state.filter)
+    const filter = useSelector(state => state.photos.filter)
 
     const filteredPhoto = photos.filter(photo => {
         if (photo.albumId === selectedAlbumId) {
